@@ -1,22 +1,21 @@
 // src/firebaseConfig.js
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
 
-// Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCpXrjWQRu7KZbm_UKp6nvhFoOS-xE3Xdg",
-  authDomain: "myfirestore-77728.firebaseapp.com",
-  projectId: "myfirestore-77728",
-  storageBucket: "myfirestore-77728.appspot.com",
-  messagingSenderId: "5982560321",
-  appId: "1:5982560321:web:d522bea216d8eb9feca6c0",
-  measurementId: "G-9PWPTMJ2JY"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const firestore = getFirestore(app); // Correctly initialize Firestore
+const firestore = getFirestore(app);
 
-export { firestore }; // Export Firestore instance
+export { firestore };

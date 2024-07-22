@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { firestore } from './firebaseConfig'; // Import Firestore instance
+import { firestore } from './firebaseConfig';
 import { addDoc, collection, getDocs } from "firebase/firestore";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 
   const saveDataToFirestore = async () => {
     try {
-      await addDoc(collection(firestore, "myCollection"), { // Use the Firestore instance here
+      await addDoc(collection(firestore, "myCollection"), {
         field1: inputValue1,
         field2: inputValue2,
       });
@@ -21,7 +21,7 @@ function App() {
 
   const fetchDataFromFirestore = async () => {
     try {
-      const querySnapshot = await getDocs(collection(firestore, "myCollection")); // Use the Firestore instance here
+      const querySnapshot = await getDocs(collection(firestore, "myCollection"));
       const temporaryArr = [];
       querySnapshot.forEach((doc) => {
         temporaryArr.push(doc.data());
